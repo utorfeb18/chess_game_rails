@@ -1,0 +1,50 @@
+<h1>UTOR FEB19 Chess</h1>
+
+<style>
+  .logo {
+    grid-area: logo;
+  }
+
+  .row {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  .square {
+    border: 1px black solid;
+    height: 140px;
+    flex: 1 0 11.1%;
+  }
+
+  /**.square:nth-of-type(even) {
+    background-color: lightgrey;
+  }
+*/
+  .row:nth-of-type(odd) .square:nth-of-type(even) {
+    background-color: lightgrey;
+
+  }
+  .row:nth-of-type(even) .square:nth-of-type(odd) {
+    background-color: lightgrey;
+
+  }
+  
+</style>
+
+<div class="container">
+  <% 8.times.each do |row_number| %>
+    <div class="row">
+      <% 8.times.each do |column_number| %>
+          <div class="square"> 
+            <%= row_number%> 
+            <%= column_number%>
+            <% if row_number == 0 && column_number == 0 %>
+              rook
+            <% elsif row_number == 0 && column_number == 1%>
+              knight            
+            <%end%>
+          </div>
+      <% end %>
+    </div>  
+  <% end %>
+</div>
